@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="topiccontent">
+    <h1 style="text-align: center">{{ resp.data.title }}</h1>
+    <div v-html="resp.data.content"></div>
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
+import axios from "axios";
 export default {
-  name: "Home",
-  components: {
-    HelloWorld
+  data() {
+    return {
+      resp: {
+        data: {
+          id: "22222"
+        }
+      }
+    };
+  },
+  created() {
+    let url = `https://cnodejs.org/api/v1/topic/${this.$route.params.id}`;
+    console.log(url);
+    axios.get(url).then(response => {
+      this.resp = response.data;
+    });
   }
 };
 </script>
+<style lang="scss">
+.topiccontent {
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: left;
+  img {
+    width: 100%;
+  }
+}
+</style>
