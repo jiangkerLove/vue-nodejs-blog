@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "ant-design-vue": "^1.4.12",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.13.0",
     "core-js": "^3.6.4",
     "vant": "^2.5.8",
